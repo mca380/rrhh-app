@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+</h:head>
+<h:body>
+    <h2>Candidatos</h2>
+
+    <p:dataTable id="candidate-table" var="user" value="#{userList.users}">
+
+        <p:column headerText="Nombre">
+            <h:outputText value="#{user.name}"/>
+        </p:column>
+
+        <p:column headerText="Apellido">
+            <h:outputText value="#{user.surname}"/>
+        </p:column>
+
+        <p:column headerText="Departamento">
+            <h:outputText value="#{user.department}"/>
+        </p:column>
+
+        <p:column headerText="Acciones">
+            <h:form>
+                <p:commandButton value="Detalles" action="#{userList.selectUser(user)}"
+                                 oncomplete="PF('candidate-details').show()" update="candidate-details"/>
+            </h:form>
+        </p:column>
+    </p:dataTable>
+
+    <p:dialog header="Bienvenido" modal="true" id="candidate-details" widgetVar="candidate-details" dynamic="true"
+              minHeight="40">
+    <h:inputText value="#{userList.selectedUser.name}"/>
+    <h:form>
+    <div>
+        <h:inputText value="#{userList.selectedUser.surname}"/>
+
+        <p:commandButton value="Guardar cambios" actionListener="#{userList.saveSelected}">
+            <p:confirm header="Confirmar" message="Estas seguro?" icon="ui-icon-alert" />
+        </p:commandButton>
+
+        <p:commandButton value="Salir" onclick="PF('candidate-details').hide()" update="candidate-table"/>
+
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" onclick="PF('candidate-details').hide()" />
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+    </div>
+    <div>
+        <h:inputText value="#{userList.selectedUser.department}"/>
+
+        <p:commandButton value="Guardar cambios" actionListener="#{userList.saveSelected}">
+            <p:confirm header="Confirmar" message="Estas seguro?" icon="ui-icon-alert" />
+        </p:commandButton>
+
+        <p:commandButton value="Salir" onclick="PF('candidate-details').hide()" update="candidate-table"/>
+        </div>
+        </h:form>
+        </p:dialog>
+
+</h:body>
+</html>
