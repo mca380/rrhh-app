@@ -2,10 +2,35 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-e5ln1YQrCh2KTj0GVDWxOfDZ53Fd5Uss2u08OZUtzZNrxWfeYC4P7VBWHRDPvJUk" crossorigin="anonymous"/>
+</head>
 <body>
-<h2>Recursos Humanos</h2>
-<p:breadCrumb>
-    <p:menuitem value="Gestión de candidatos" url="candidates/candidates.xhtml" />
-</p:breadCrumb>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">BRUJULA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link">Recursos Humanos <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="candidates/candidates.xhtml"> Gestión de candidatos</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="jumbotron">
+    <h1 class="display-3">BIENVENI@ A LA GESTIÓN DE CANDITAD@S!</h1>
+    <p class="lead">Aqui podrá modificar los datos del l@s cadidatos para llevar a cabo la selección final.</p>
+    <hr class="my-4"/>
+    <p>Para visualizar los candidatos existentes pulse "siguiente".</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="candidates/candidates.xhtml" role="button">Siguiente</a>
+    </p>
+</div>
 </body>
 </html>

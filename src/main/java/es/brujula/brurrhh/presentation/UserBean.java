@@ -52,6 +52,7 @@ public class UserBean {
         this.department = department;
     }
 
+
     public void save() {
         User newUser = new User();
         newUser.setName(this.name);
